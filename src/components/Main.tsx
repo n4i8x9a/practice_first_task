@@ -422,7 +422,7 @@ export function Main() {
                     accept=".ini"
                     style={{display: 'none'}}
                     id="raised-button-file"
-                    multiple
+
                     type="file"
                     onChange={(event) => {
                         let files = event.target.files;
