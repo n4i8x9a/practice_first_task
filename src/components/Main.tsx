@@ -149,36 +149,46 @@ export function Main() {
 
     };
     const saveFile = () => {
-        let data = {
-            'mode': mode,
-            'rstnum': rstnum,
-            'group': group,
-            'sortmode': sortMode,
-            'time1': time1,
-            'time2': time2,
-            'time3': time3,
-            'callclr1': callclr1,
-            'callclr2': callclr2,
-            'callclr3': callclr3,
-            'skipsubnum': skipSubNum,
-            'defaultfontfamily': defaultFontFamily,
-            'defaultfontsize': defaultFontSize,
-            'largefontfamily': largeFontFamily,
-            'largefontsize': largeFontSize,
-            'blinkingcolor': blinkingColor,
-            'background_1': background1,
-            'serial': serial,
-            'address': address,
-            'ip_addr': IPAddr,
-            'ip_mask': IPmask
-        };
-        let output = "";
-        for (let key of Object.keys(data)) {
-            // @ts-ignore
-            output += `${key} = ${data[key]}\n`;
-        }
-        download('conf.ini', output);
+        let output =
+            `# RCall configuration file
 
+# Common configs
+# Possible Modes: 1, 2, 3, 4
+mode = ${mode};\t\tРежим отображения (1, 2, 3 или 4)
+
+rstnum = ${rstnum};\t\tэто номер кнопки, которая всё сбрасывает. 0 - не используется
+group = ${group};\t\tгруппа, с которой принимаем вызовы. 0 - не используется
+
+# Modes 1, 2
+sortmode = ${sortMode};\t\t0 - последний слева (снизу), 1 - первый слева (снизу)
+
+time1 = ${time1};\t\tвремя нового вызова (сек)
+time2 = ${time2};\t\tвремя вызова при задержке (сек)
+time3 = ${time3};\t\tвремя необслуженного вызова (сек), после которого вызов удаляется. 0 - вызов остаётся до сброса
+; полное время показа вызова -- time1 + time2 + time3
+
+callclr1 = ${callclr1};\tЦвет нового вызова
+callclr2 = ${callclr2};\tЦвет вызова при задержке
+callclr3 = ${callclr3};\t\tЦвет необслуженного вызова
+
+skipsubnum = ${skipSubNum};\t\tОтвечает за пропуск субномеров (1, 1В и 1А считаются, как 1)
+defaultfontfamily = ${defaultFontFamily}
+defaultfontsize = ${defaultFontSize}
+
+largefontfamily = ${largeFontFamily}
+largefontsize = ${largeFontSize}
+
+# Mode 1
+blinkingcolor = ${blinkingColor}
+background_1 = ${background1}
+
+# Program configs (not change)
+serial = ${serial};\tttyUSB0
+address = ${address}
+ip_addr = ${IPAddr}; Ip адрес устройства в случае статической настройки
+ip_mask = ${IPmask}`;
+
+        download('conf.ini', output);
     }
     return (
         <>
