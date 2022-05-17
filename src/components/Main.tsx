@@ -1,19 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField} from "@mui/material";
 
 
-function download(filename: string, textInput: string) {
-    let element = document.createElement('a');
-    element.setAttribute('href',
-        'data:text/plain;charset=utf-8,' + encodeURIComponent(textInput));
-    element.setAttribute('download', filename);
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-}
-
 export function Main() {
 
+    const [secret, setSecret] = useState('');
+    const [didFetch, setDidFetch] = useState(false);
     const [mode, setMode] = useState('');
     const [rstnum, setRstnum] = useState('');
     const [group, setGroup] = useState('');
@@ -35,6 +27,158 @@ export function Main() {
     const [address, setAddress] = useState('');
     const [IPAddr, setIPAddr] = useState('');
     const [IPmask, setIPmask] = useState('');
+
+    const saveToServer = async () => {
+        let data = {
+            'mode': mode,
+            'rstnum': rstnum,
+            'group': group,
+            'sortmode': sortMode,
+            'time1': time1,
+            'time2': time2,
+            'time3': time3,
+            'callclr1': callclr1,
+            'callclr2': callclr2,
+            'callclr3': callclr3,
+            'skipsubnum': skipSubNum,
+            'defaultfontfamily': defaultFontFamily,
+            'defaultfontsize': defaultFontSize,
+            'largefontfamily': largeFontFamily,
+            'largefontsize': largeFontSize,
+            'blinkingcolor': blinkingColor,
+            'background_1': background1,
+            'serial': serial,
+            'address': address,
+            'ip_addr': IPAddr,
+            'ip_mask': IPmask
+        };
+
+        let req = await fetch('/api/save',
+            {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({data: data, secret: secret})
+            }
+        );
+        if (req.ok) {
+            alert("Saved");
+            return;
+        }
+        if (req.status == 403) {
+            alert("Error : wrong secret!");
+            return;
+        }
+        if (req.status == 500) {
+            let resp = await req.json();
+            alert(`Error on backend: ${resp.error}`);
+            return;
+        } else {
+            throw('Network error');
+        }
+    }
+    const fetchData = async () => {
+        let req = await fetch('/api/read');
+        if (req.ok) {
+            let resp = await req.json();
+            return resp;
+
+        } else if (req.status == 500) {
+            let resp = await req.json();
+            alert(`Error on backend: ${resp.error}`)
+            return;
+        } else {
+            throw('Network error');
+        }
+
+    }
+    useEffect(() => {
+        fetchData().then(v => {
+            if (!didFetch) {
+                setDidFetch(true);
+            }
+
+            if (v.success) {
+                let data = v.data;
+                if (data.mode != null) {
+                    setMode(data.mode);
+                }
+                if (data.rstnum != null) {
+                    setRstnum(data.rstnum);
+                }
+                if (data.group != null) {
+                    setGroup(data.group);
+                }
+                if (data.sortmode != null) {
+                    setSortMode(data.sortmode);
+                }
+                if (data.time1 != null) {
+                    setTime1(data.time1);
+                }
+                if (data.time2 != null) {
+                    setTime2(data.time2);
+                }
+                if (data.time3 != null) {
+                    setTime3(data.time3);
+                }
+                if (data.callclr1 != null) {
+                    setCallclr1(data.callclr1);
+                }
+                if (data.callclr2 != null) {
+                    setCallclr2(data.callclr2);
+                }
+
+                if (data.callclr3 != null) {
+                    setCallclr3(data.callclr3);
+                }
+                if (data.skipsubnum != null) {
+                    setSkipSubNum(data.skipsubnum);
+                }
+
+                if (data.defaultfontfamily != null) {
+                    setDefaultFontFamily(data.defaultfontfamily);
+                }
+
+                if (data.defaultfontsize != null) {
+                    setDefaultFontSize(data.defaultfontsize);
+                }
+                if (data.largefontfamily != null) {
+                    setLargeFontFamily(data.largefontfamily);
+                }
+                if (data.largefontsize != null) {
+                    setLargeFontSize(data.largefontsize);
+                }
+                if (data.blinkingcolor != null) {
+                    setBlinkingColor(data.blinkingcolor);
+                }
+                if (data.background_1 != null) {
+                    setBackground1(data.background_1);
+                }
+                if (data.serial != null) {
+                    setSerial(data.serial);
+                }
+                if (data.address != null) {
+                    setAddress(data.address);
+                }
+                if (data.ip_addr != null) {
+                    setIPAddr(data.ip_addr);
+                }
+                if (data.ip_mask != null) {
+                    setIPmask(data.ip_mask);
+                }
+            } else {
+                alert(`Error on backend: ${v.error}`);
+            }
+        }).catch(e => {
+            if (!didFetch) {
+                setDidFetch(true);
+            }
+            alert(`Error : ${e.toString()
+            }`)
+        });
+    }, [didFetch]);
 
     const onReadFile = (fileData: string) => {
         let lines = fileData.split('\n');
@@ -148,48 +292,6 @@ export function Main() {
         }
 
     };
-    const saveFile = () => {
-        let output =
-            `# RCall configuration file
-
-# Common configs
-# Possible Modes: 1, 2, 3, 4
-mode = ${mode};\t\tРежим отображения (1, 2, 3 или 4)
-
-rstnum = ${rstnum};\t\tэто номер кнопки, которая всё сбрасывает. 0 - не используется
-group = ${group};\t\tгруппа, с которой принимаем вызовы. 0 - не используется
-
-# Modes 1, 2
-sortmode = ${sortMode};\t\t0 - последний слева (снизу), 1 - первый слева (снизу)
-
-time1 = ${time1};\t\tвремя нового вызова (сек)
-time2 = ${time2};\t\tвремя вызова при задержке (сек)
-time3 = ${time3};\t\tвремя необслуженного вызова (сек), после которого вызов удаляется. 0 - вызов остаётся до сброса
-; полное время показа вызова -- time1 + time2 + time3
-
-callclr1 = ${callclr1};\tЦвет нового вызова
-callclr2 = ${callclr2};\tЦвет вызова при задержке
-callclr3 = ${callclr3};\t\tЦвет необслуженного вызова
-
-skipsubnum = ${skipSubNum};\t\tОтвечает за пропуск субномеров (1, 1В и 1А считаются, как 1)
-defaultfontfamily = ${defaultFontFamily}
-defaultfontsize = ${defaultFontSize}
-
-largefontfamily = ${largeFontFamily}
-largefontsize = ${largeFontSize}
-
-# Mode 1
-blinkingcolor = ${blinkingColor}
-background_1 = ${background1}
-
-# Program configs (not change)
-serial = ${serial};\tttyUSB0
-address = ${address}
-ip_addr = ${IPAddr}; Ip адрес устройства в случае статической настройки
-ip_mask = ${IPmask}`;
-
-        download('conf.ini', output);
-    }
     return (
         <>
             <div className={"main"}>
@@ -424,6 +526,15 @@ ip_mask = ${IPmask}`;
                         onChange={(e) => setIPmask(e.target.value)}
                     />
                 </div>
+                <div className={'field'}>
+                    <TextField
+                        fullWidth
+                        type="password"
+                        label="secret"
+                        value={secret}
+                        onChange={(e) => setSecret(e.target.value)}
+                    />
+                </div>
 
 
             </div>
@@ -456,9 +567,9 @@ ip_mask = ${IPmask}`;
                 </label>
                 <div className={'form'}>
                     <Button component="span"
-                            onClick={saveFile}
+                            onClick={() => saveToServer().then().catch(e => alert(e.toString()))}
                     >
-                        Download
+                        Save
                     </Button>
                 </div>
             </div>
