@@ -295,14 +295,17 @@ export function Main() {
     return (
         <>
             <div className={"main"}>
+                <div className={'ram'}>
+                <div className={"cont"}>
+                    <h3>mode</h3>
                 <div className={'field'}>
 
                     <FormControl fullWidth>
-                        <InputLabel>mode</InputLabel>
+
                         <Select
 
                             value={mode}
-                            label="mode"
+
                             onChange={(e) => setMode(e.target.value)}
                         >
                             <MenuItem value={1}>1</MenuItem>
@@ -312,267 +315,348 @@ export function Main() {
                         </Select>
                     </FormControl>
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>rstnum</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
-                        label="rstnum"
+
                         value={rstnum}
                         onChange={(e) => setRstnum(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>group</h3>
                 <div className={'field'}>
 
                     <TextField
-                        label="group"
+
                         value={group}
                         fullWidth
                         onChange={(e) => setGroup(e.target.value)}
                     />
                 </div>
+                </div>
+                    <div className={"cont"}>
+                        <h3>sortmode</h3>
+                        <div className={'field'}>
 
-                <div className={'field'}>
+                            <FormControl fullWidth>
+                                <InputLabel></InputLabel>
+                                <Select
 
-                    <FormControl fullWidth>
-                        <InputLabel>sortmode</InputLabel>
-                        <Select
+                                    value={sortMode}
 
-                            value={sortMode}
-                            label="sortmode"
-                            onChange={(e) => setSortMode(e.target.value)}
-                        >
-                            <MenuItem value={0}>0</MenuItem>
-                            <MenuItem value={1}>1</MenuItem>
+                                    onChange={(e) => setSortMode(e.target.value)}
+                                >
+                                    <MenuItem value={0}>0</MenuItem>
+                                    <MenuItem value={1}>1</MenuItem>
 
-                        </Select>
-                    </FormControl>
+                                </Select>
+                            </FormControl>
+                        </div>
+                    </div>
+
                 </div>
 
+                <div className={'ram'}>
+                <div className={"cont"}>
+                    <h3>time1</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="time1"
+
                         value={time1}
                         onChange={(e) => setTime1(e.target.value)}
                     />
                 </div>
+                </div>
+                <div className={"cont"}>
+                    <h3>time2</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="time2"
+
                         value={time2}
                         onChange={(e) => setTime2(e.target.value)}
                     />
                 </div>
+                </div>
+
+                <div className={"cont"}>
+                    <h3>time3</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="time3"
+
                         value={time3}
                         onChange={(e) => setTime3(e.target.value)}
                     />
                 </div>
+                </div>
+                </div>
 
+                <div className={'ram'}>
+                <div className={"cont"}>
+                    <h3>callclr1</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="callclr1"
+
                         value={callclr1}
                         onChange={(e) => setCallclr1(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>callclr2</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
-                        label="callclr2"
+
                         value={callclr2}
                         onChange={(e) => setCallclr2(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>callclr3</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
-                        label="callclr3"
+
                         value={callclr3}
                         onChange={(e) => setCallclr3(e.target.value)}
                     />
                 </div>
-
+                </div>
+                </div>
+                <div className={'ram'}>
+                <div className={"cont"}>
+                    <h3>skipsubnum</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="skipsubnum"
+
                         value={skipSubNum}
                         onChange={(e) => setSkipSubNum(e.target.value)}
                     />
                 </div>
+                </div>
+                </div>
+                <div className={'ram'}>
+                <div className={"cont"}>
+                    <h3>defaultfontfamily</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
-                        label="defaultfontfamily"
+
                         value={defaultFontFamily}
                         onChange={(e) => setDefaultFontFamily(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>defaultfontsize</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="defaultfontsize"
+
                         value={defaultFontSize}
                         onChange={(e) => setDefaultFontSize(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>largefontfamily</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="largefontfamily"
+
                         value={largeFontFamily}
                         onChange={(e) => setLargeFontFamily(e.target.value)}
                     />
                 </div>
+                </div>
 
+                <div className={"cont"}>
+                    <h3>largefontsize</h3>
                 <div className={'field'}>
                     <TextField
                         fullWidth
 
 
-                        label="largefontsize"
+
                         value={largeFontSize}
                         onChange={(e) => setLargeFontSize(e.target.value)}
                     />
                 </div>
+                </div>
+                    <div className={"cont"}>
+                        <h3>blinkingcolor</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
 
 
-                        label="blinkingcolor"
-                        value={blinkingColor}
-                        onChange={(e) => setBlinkingColor(e.target.value)}
-                    />
+                                value={blinkingColor}
+                                onChange={(e) => setBlinkingColor(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>background_1</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+
+                                value={background1}
+                                onChange={(e) => setBackground1(e.target.value)}
+                            />
+                        </div>
+                    </div>
                 </div>
 
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+
+                <div className={'ram'}>
+                    <div className={"cont"}>
+                        <h3>serial</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-                        label="background_1"
-                        value={background1}
-                        onChange={(e) => setBackground1(e.target.value)}
-                    />
+
+                                value={serial}
+                                onChange={(e) => setSerial(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>address</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>ip_addr</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+                                value={IPAddr}
+                                onChange={(e) => setIPAddr(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>ip_mask</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+                                value={IPmask}
+                                onChange={(e) => setIPmask(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+
                 </div>
+                <div className={'ram bottom_'}>
+                    <div className={"cont"}>
+                        <h3>secret</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+                                type="password"
 
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                                value={secret}
+                                onChange={(e) => setSecret(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
+                    <div className={'but'}>
+                        <input
+                            accept=".ini"
+                            style={{display: 'none'}}
+                            id="raised-button-file"
 
-                        label="serial"
-                        value={serial}
-                        onChange={(e) => setSerial(e.target.value)}
-                    />
+                            type="file"
+                            onChange={(event) => {
+                                let files = event.target.files;
+                                const reader = new FileReader();
+                                reader.addEventListener('load', (event) => {
+                                    // @ts-ignore
+                                    onReadFile(event.target.result);
+                                });
+                                // @ts-ignore
+                                if (files != null) {
+                                    // @ts-ignore
+                                    reader.readAsText(files[0]);
+                                }
+                            }}
+                        />
+                        <label htmlFor="raised-button-file">
+                            <Button component="span" fullWidth variant="contained"
+                            >
+                                Upload from file
+                            </Button>
+                        </label>
+                    </div>
+
+                    <div className={'but'}>
+                        <Button component="span" variant="contained" fullWidth
+                                onClick={() => saveToServer().then().catch(e => alert(e.toString()))}
+                        >
+                            Save configuration
+                        </Button>
+                    </div>
                 </div>
-
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
-                        label="address"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-                </div>
-
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
-                        label="ip_addr"
-                        value={IPAddr}
-                        onChange={(e) => setIPAddr(e.target.value)}
-                    />
-                </div>
-
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
-                        label="ip_mask"
-                        value={IPmask}
-                        onChange={(e) => setIPmask(e.target.value)}
-                    />
-                </div>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-                        type="password"
-                        label="secret"
-                        value={secret}
-                        onChange={(e) => setSecret(e.target.value)}
-                    />
-                </div>
-
 
             </div>
-            <div className={'footer'}>
-                <input
-                    accept=".ini"
-                    style={{display: 'none'}}
-                    id="raised-button-file"
 
-                    type="file"
-                    onChange={(event) => {
-                        let files = event.target.files;
-                        const reader = new FileReader();
-                        reader.addEventListener('load', (event) => {
-                            // @ts-ignore
-                            onReadFile(event.target.result);
-                        });
-                        // @ts-ignore
-                        if (files != null) {
-                            // @ts-ignore
-                            reader.readAsText(files[0]);
-                        }
-                    }}
-                />
-                <label htmlFor="raised-button-file">
-                    <Button component="span"
-                    >
-                        Upload
-                    </Button>
-                </label>
-                <div className={'form'}>
-                    <Button component="span"
-                            onClick={() => saveToServer().then().catch(e => alert(e.toString()))}
-                    >
-                        Save
-                    </Button>
-                </div>
-            </div>
         </>
 
     );
