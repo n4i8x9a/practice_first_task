@@ -296,51 +296,51 @@ export function Main() {
         <>
             <div className={"main"}>
                 <div className={'ram'}>
-                <div className={"cont"}>
-                    <h3>mode</h3>
-                <div className={'field'}>
+                    <div className={"cont"}>
+                        <h3>mode</h3>
+                        <div className={'field'}>
 
-                    <FormControl fullWidth>
+                            <FormControl fullWidth>
 
-                        <Select
+                                <Select
 
-                            value={mode}
+                                    value={mode}
 
-                            onChange={(e) => setMode(e.target.value)}
-                        >
-                            <MenuItem value={1}>1</MenuItem>
-                            <MenuItem value={2}>2</MenuItem>
-                            <MenuItem value={3}>3</MenuItem>
-                            <MenuItem value={4}>4</MenuItem>
-                        </Select>
-                    </FormControl>
-                </div>
-                </div>
+                                    onChange={(e) => setMode(e.target.value)}
+                                >
+                                    <MenuItem value={1}>1</MenuItem>
+                                    <MenuItem value={2}>2</MenuItem>
+                                    <MenuItem value={3}>3</MenuItem>
+                                    <MenuItem value={4}>4</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                    </div>
 
-                <div className={"cont"}>
-                    <h3>rstnum</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>rstnum</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
-                        value={rstnum}
-                        onChange={(e) => setRstnum(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={rstnum}
+                                onChange={(e) => setRstnum(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
-                <div className={"cont"}>
-                    <h3>group</h3>
-                <div className={'field'}>
+                    <div className={"cont"}>
+                        <h3>group</h3>
+                        <div className={'field'}>
 
-                    <TextField
+                            <TextField
 
-                        value={group}
-                        fullWidth
-                        onChange={(e) => setGroup(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={group}
+                                fullWidth
+                                onChange={(e) => setGroup(e.target.value)}
+                            />
+                        </div>
+                    </div>
                     <div className={"cont"}>
                         <h3>sortmode</h3>
                         <div className={'field'}>
@@ -364,165 +364,156 @@ export function Main() {
                 </div>
 
                 <div className={'ram'}>
-                <div className={"cont"}>
-                    <h3>time1</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>time1</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-
-                        value={time1}
-                        onChange={(e) => setTime1(e.target.value)}
-                    />
-                </div>
-                </div>
-                <div className={"cont"}>
-                    <h3>time2</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
+                                value={time1}
+                                onChange={(e) => setTime1(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className={"cont"}>
+                        <h3>time2</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-                        value={time2}
-                        onChange={(e) => setTime2(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={time2}
+                                onChange={(e) => setTime2(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
-                <div className={"cont"}>
-                    <h3>time3</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>time3</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-
-                        value={time3}
-                        onChange={(e) => setTime3(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={time3}
+                                onChange={(e) => setTime3(e.target.value)}
+                            />
+                        </div>
+                    </div>
                 </div>
 
                 <div className={'ram'}>
-                <div className={"cont"}>
-                    <h3>callclr1</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>callclr1</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
+                                value={callclr1}
+                                onChange={(e) => setCallclr1(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
-                        value={callclr1}
-                        onChange={(e) => setCallclr1(e.target.value)}
-                    />
-                </div>
-                </div>
-
-                <div className={"cont"}>
-                    <h3>callclr2</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
-
-                        value={callclr2}
-                        onChange={(e) => setCallclr2(e.target.value)}
-                    />
-                </div>
-                </div>
-
-                <div className={"cont"}>
-                    <h3>callclr3</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>callclr2</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-                        value={callclr3}
-                        onChange={(e) => setCallclr3(e.target.value)}
-                    />
-                </div>
-                </div>
-                </div>
-                <div className={'ram'}>
-                <div className={"cont"}>
-                    <h3>skipsubnum</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                                value={callclr2}
+                                onChange={(e) => setCallclr2(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>callclr3</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-
-                        value={skipSubNum}
-                        onChange={(e) => setSkipSubNum(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={callclr3}
+                                onChange={(e) => setCallclr3(e.target.value)}
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className={'ram'}>
-                <div className={"cont"}>
-                    <h3>defaultfontfamily</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>skipsubnum</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-                        value={defaultFontFamily}
-                        onChange={(e) => setDefaultFontFamily(e.target.value)}
-                    />
+                                value={skipSubNum}
+                                onChange={(e) => setSkipSubNum(e.target.value)}
+                            />
+                        </div>
+                    </div>
                 </div>
-                </div>
-
-                <div className={"cont"}>
-                    <h3>defaultfontsize</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
+                <div className={'ram'}>
+                    <div className={"cont"}>
+                        <h3>defaultfontfamily</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
-                        value={defaultFontSize}
-                        onChange={(e) => setDefaultFontSize(e.target.value)}
-                    />
-                </div>
-                </div>
+                                value={defaultFontFamily}
+                                onChange={(e) => setDefaultFontFamily(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
-                <div className={"cont"}>
-                    <h3>largefontfamily</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
-
-
-
-                        value={largeFontFamily}
-                        onChange={(e) => setLargeFontFamily(e.target.value)}
-                    />
-                </div>
-                </div>
-
-                <div className={"cont"}>
-                    <h3>largefontsize</h3>
-                <div className={'field'}>
-                    <TextField
-                        fullWidth
+                    <div className={"cont"}>
+                        <h3>defaultfontsize</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
 
 
+                                value={defaultFontSize}
+                                onChange={(e) => setDefaultFontSize(e.target.value)}
+                            />
+                        </div>
+                    </div>
 
-                        value={largeFontSize}
-                        onChange={(e) => setLargeFontSize(e.target.value)}
-                    />
-                </div>
-                </div>
+                    <div className={"cont"}>
+                        <h3>largefontfamily</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+                                value={largeFontFamily}
+                                onChange={(e) => setLargeFontFamily(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className={"cont"}>
+                        <h3>largefontsize</h3>
+                        <div className={'field'}>
+                            <TextField
+                                fullWidth
+
+
+                                value={largeFontSize}
+                                onChange={(e) => setLargeFontSize(e.target.value)}
+                            />
+                        </div>
+                    </div>
                     <div className={"cont"}>
                         <h3>blinkingcolor</h3>
                         <div className={'field'}>
                             <TextField
                                 fullWidth
-
 
 
                                 value={blinkingColor}
@@ -536,7 +527,6 @@ export function Main() {
                         <div className={'field'}>
                             <TextField
                                 fullWidth
-
 
 
                                 value={background1}
@@ -553,7 +543,6 @@ export function Main() {
                         <div className={'field'}>
                             <TextField
                                 fullWidth
-
 
 
                                 value={serial}
